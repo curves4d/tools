@@ -39,7 +39,7 @@ function gmb {
 
 # Helper function which always saves the folder cd is moving to
 function cdh {
-    cd $1
+    command cd $1
     last_code=$?
     echo "Last code: " $last_code
     if [[ $last_code -eq 0 ]]; then
