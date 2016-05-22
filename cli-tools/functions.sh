@@ -1,7 +1,3 @@
-#!
-/usr/bin/env bash
-
-
 # This function sets a global variable to the last branch in git
 function set_branch {
     last_branch=$(git branch | grep '*' | sed 's/* //g')
@@ -74,3 +70,6 @@ alias v="vim ~/.vimrc"
 alias c="clear"
 alias i="sudo apt-get install"
 alias cd="cdh"
+alias 'today=calendar -A 0 -f /usr/share/calendar/calendar.mark | sort'
+alias 'dus=du -sckx * | sort -nr'
+
