@@ -36,7 +36,8 @@ function gmb {
 
 # Helper function which always saves the folder cd is moving to
 function cdh {
-    command cd $1
+    \cd $1
+    echo $1
     last_code=$?
     echo "Last code: " $last_code
     if [[ $last_code -eq 0 ]]; then
@@ -69,4 +70,4 @@ alias e="vim ~/.zshrc"
 alias v="vim ~/.vimrc"
 alias c="clear"
 alias i="sudo apt-get install"
-alias cd="cdh"
+alias -r cd=cdh
