@@ -1,7 +1,3 @@
-#!
-/usr/bin/env bash
-
-
 # This function sets a global variable to the last branch in git
 function set_branch {
     last_branch=$(git branch | grep '*' | sed 's/* //g')
