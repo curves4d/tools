@@ -63,17 +63,3 @@ function ont {
     curl "https://ontology.corp.bloomreach.com/kitt/owf2?url=${1}&merchant=${2}&query=${3}" | less
 }
 
-alias lt='ls -gAGhslrt'
-alias s="source ~/.zshrc" 
-alias e="vim ~/.zshrc"
-alias v="vim ~/.vimrc"
-alias c="clear"
-alias i="sudo apt-get install"
-<<<<<<< HEAD
-alias cd="cdh"
-alias 'today=calendar -A 0 -f /usr/share/calendar/calendar.mark | sort'
-alias 'dus=du -sckx * | sort -nr'
-
-=======
-alias -r cd=cdh
->>>>>>> a130659dc57131f1d99aeb3df00307b7d6c22343
