@@ -53,12 +53,9 @@ plugins=(colored-man-pages)
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/Users/udbhav.singh/play/play-2.2.6:/Users/udbhav.singh/maven/apache-maven-3.3.3/bin:/Users/udbhav.singh/maven/apache-maven-3.2.3/bin:/Users/udbhav.singh/.rvm/gems/ruby-1.8.7-head/bin:/Users/udbhav.singh/.rvm/gems/ruby-1.8.7-head@global/bin:/Users/udbhav.singh/.rvm/rubies/ruby-1.8.7-head/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/local/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/Users/udbhav.singh/activator-dist-1.3.6/:.:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/:/Applications/Xcode.app/Contents/Developer/usr/bin/:/Users/udbhav.singh/packages/mongodb-osx-x86_64-3.2.1/bin/:/Users/udbhav.singh/br/:/Users/udbhav.singh/br/tools/ec2/bin:/Users/udbhav.singh/br/tools/elastic-mapreduce:/Users/udbhav.singh/br/tools/gogrid:/usr/local/mysql/bin:/Users/udbhav.singh/bin:/Users/udbhav.singh/.rvm/bin:/Users/udbhav.singh/local_work_dir/scripts/:/Users/udbhav.singh/local_work_dir/bin/:/Users/udbhav.singh/.rvm/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
-export cli_tools_dir="/Users/udbhav.singh/local_work_dir/tech/tools/cli-tools/"
-source $cli_tools_dir/init.sh
 source ~/.bash_profile
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -84,3 +81,5 @@ source ~/.bash_profile
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+export TERM=screen-256color
+
