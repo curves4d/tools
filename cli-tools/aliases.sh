@@ -9,6 +9,7 @@ alias cdl="cd ~/local_work_dir"
 alias shuf=gshuf
 alias dev="ssh ubuntu@ec2-54-92-228-225.compute-1.amazonaws.com"
 alias c="clear"
+alias gp="git pull"
 alias gpom="git push origin master"
 alias gri="git rebase -i master"
 alias v="vim ~/.vimrc"
