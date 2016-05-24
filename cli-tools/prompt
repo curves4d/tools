@@ -1,0 +1,110 @@
+
+# colors
+Default=\\[\\e[39m\\]
+Black=\\[\\e[30m\\]
+Red=\\[\\e[31m\\]
+Green=\\[\\e[32m\\]
+Yellow=\\[\\e[33m\\]
+Blue=\\[\\e[34m\\]
+Magenta=\\[\\e[35m\\]
+Cyan=\\[\\e[36m\\]
+Light_gray=\\[\\e[37m\\]
+Dark_gray=\\[\\e[90m\\]
+Light_red=\\[\\e[91m\\]
+Light_red_esc=\\\e[91m
+Light_green=\\[\\e[92m\\]
+Light_yellow=\\[\\e[93m\\]
+Light_blue=\\[\\e[94m\\]
+Light_magenta=\\[\\e[95m\\]
+Light_cyan=\\[\\e[96m\\]
+White=\\[\\e[97m\\]
+none=\\[\\e[m\\]
+
+#  Default background color    
+bBlack=\\[\\e[40m\\]
+bRed=\\[\\e[41m\\]
+bGreen=\\[\\e[42m\\]
+bYellow=\\[\\e[43m\\]
+bBlue=\\[\\e[44m\\]
+bMagenta=\\[\\e[45m\\]
+bCyan=\\[\\e[46m\\]
+bLight_gray=\\[\\e[47m\\]
+bDark_gray=\\[\\e[100m\\]
+bLight_red=\\[\\e[101m\\]
+bLight_green=\\[\\e[102m\\]
+bLight_yellow=\\[\\e[103m\\]
+bLight_blue=\\[\\e[104m\\]
+bLight_magenta=\\[\\e[105m\\]
+bLight_cyan=\\[\\e[106m\\]
+bWhite=\\[\\e[107m\\]
+
+# Effects
+Underline=\\[\\e[4m\\]
+Blink=\\[\\e[5m\\]
+Bright=\\[\\e[1m\\]
+uni="\\e[5m"$'\u25b6'"\\e[m"
+uni1=$'\u25b6'
+
+# get current branch in git repo
+function parse_git_branch() {
+	BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
+	if [ ! "${BRANCH}" == "" ]
+	then
+		STAT=`parse_git_dirty`
+		echo -e " $uni $Light_red_esc[${BRANCH}${STAT}]"
+	else
+		echo ""
+	fi
+}
+
+# get current status of git repo
+function parse_git_dirty {
+	status=`git status 2>&1 | tee`
+	dirty=`echo -n "${status}" 2> /dev/null | grep "modified:" &> /dev/null; echo "$?"`
+	untracked=`echo -n "${status}" 2> /dev/null | grep "Untracked files" &> /dev/null; echo "$?"`
+	ahead=`echo -n "${status}" 2> /dev/null | grep "Your branch is ahead of" &> /dev/null; echo "$?"`
+	newfile=`echo -n "${status}" 2> /dev/null | grep "new file:" &> /dev/null; echo "$?"`
+	renamed=`echo -n "${status}" 2> /dev/null | grep "renamed:" &> /dev/null; echo "$?"`
+	deleted=`echo -n "${status}" 2> /dev/null | grep "deleted:" &> /dev/null; echo "$?"`
+	bits=''
+	if [ "${renamed}" == "0" ]; then
+		bits=">${bits}"
+	fi
+	if [ "${ahead}" == "0" ]; then
+		bits="*${bits}"
+	fi
+	if [ "${newfile}" == "0" ]; then
+		bits="+${bits}"
+	fi
+	if [ "${untracked}" == "0" ]; then
+		bits="?${bits}"
+	fi
+	if [ "${deleted}" == "0" ]; then
+		bits="x${bits}"
+	fi
+	if [ "${dirty}" == "0" ]; then
+		bits="!${bits}"
+	fi
+	if [ ! "${bits}" == "" ]; then
+		echo " ${bits}"
+	else
+		echo ""
+	fi
+}
+export PROMPT_COMMAND=__prompt_command  # Func to gen PS1 after CMDs
+
+function __prompt_command() {
+    local EXIT="$?"                                                     # This needs to be first
+    PS1="$Bright$Black#\!$none $Bright$uni "                            # Command number
+    PS1+="$Bright$Magenta$Underline\w$none"                                    # working directory
+    PS1+="$Bright\`parse_git_branch\`$none $Brigh$uni "                 # git status    
+    PS1+="$Bright$Blue\t$none $uni\n"                                          # time
+    if [ $EXIT != 0 ]; then 
+        PS1+="$Bright$Red${EXIT}: $none"                                # Add red if exit code non 0
+    else
+        PS1+="$Bright$Green${EXIT}: $none"                              # Also displays exit status
+    fi
+    PS1+="$Bright$Green$uni1$uni1$uni1$uni1$none "                             # prompt
+}
+
+# export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#${HOME}/\~}\007"'
