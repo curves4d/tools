@@ -29,5 +29,5 @@ alias -g G=" | grep"
 alias -g L=" | less"
 alias -g S=" | sort"
 alias -g U=" | uniq"
-
+alias gb="git branch | grep"
 # alias tmux="TERM=xterm-256color tmux"
