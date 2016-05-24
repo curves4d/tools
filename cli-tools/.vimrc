@@ -25,7 +25,15 @@ Plugin 'majutsushi/tagbar'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-scripts/Gundo'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'vim-airline/vim-airline'
+
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#fnamemod = ':t'
+
 nmap <F8> :TagbarToggle<CR>
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -56,7 +64,6 @@ colorscheme solarized
 :nnoremap <c-u> viwU
 :let mapleader = '-'
 :let maplocalleader = "\\"
-:nnoremap <leader>d dd
 :nnoremap <leader>q :TagbarToggle<CR>
 :nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 :nnoremap <leader>sv :source $MYVIMRC<cr>
@@ -76,3 +83,28 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 :nnoremap <leader>t :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 :nnoremap <leader>g :GundoToggle<CR>
+:nnoremap <leader>b :buffers<CR>
+:nnoremap <leader>bn :bnext<CR>
+:nnoremap <leader>bp :bprevious<CR>
+:nnoremap <leader>tc :tabclose<CR>
+:nnoremap <C-Left> :tabprevious<CR>
+:nnoremap <C-Right> :tabnext<CR>
+" Setup some default ignores
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](\.(git|hg|svn)|\_site)$',
+  \ 'file': '\v\.(exe|so|dll|class|png|jpg|jpeg)$',
+  \}
+
+" Use the nearest .git directory as the cwd
+" This makes a lot of sense if you are working on a project that is in version
+" control. It also supports works with .svn, .hg, .bzr.
+let g:ctrlp_working_path_mode = 'r'
+
+" Use a leader instead of the actual named binding
+:nnoremap <leader>p :CtrlP<cr>
+
+" Easy bindings for its various modes
+:nnoremap <leader>bb :CtrlPBuffer<cr>
+:nnoremap <leader>bm :CtrlPMixed<cr>
+:nnoremap <leader>bs :CtrlPMRU<cr>
+
