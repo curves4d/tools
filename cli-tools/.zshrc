@@ -83,3 +83,7 @@ source ~/.bash_profile
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export TERM=screen-256color
 
+if [ -f ~/.local_functions ]; then
+    source ~/.local_functions
+fi
+
