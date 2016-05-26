@@ -25,9 +25,9 @@ Plugin 'majutsushi/tagbar'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-scripts/Gundo'
-Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-airline/vim-airline'
 Plugin 'mbbill/undotree'
+Plugin 'tpope/vim-fugitive'
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#tabline#fnamemod = ':t'
