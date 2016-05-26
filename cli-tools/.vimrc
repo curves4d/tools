@@ -27,7 +27,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'vim-scripts/Gundo'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-airline/vim-airline'
-
+Plugin 'mbbill/undotree'
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#tabline#fnamemod = ':t'
@@ -107,4 +107,16 @@ let g:ctrlp_working_path_mode = 'r'
 :nnoremap <leader>bb :CtrlPBuffer<cr>
 :nnoremap <leader>bm :CtrlPMixed<cr>
 :nnoremap <leader>bs :CtrlPMRU<cr>
-
+highlight ColorColumn ctermbg=blue
+set colorcolumn=81
+set list
+set listchars=tab:>>,nbsp:_,trail:.
+:nnoremap <leader>w :silent !xdg-open <C-R>=escape("<C-R><C-F>", "#?&;\|%")<CR><CR>
+set hlsearch
+cnoremap <C-x> <C-\>e(<SID>RemoveLastPathComponent())<CR>
+function! s:RemoveLastPathComponent()
+      return substitute(getcmdline(), '\%(\\ \|[\\/]\@!\f\)\+[\\/]\=$\|.$', '', '')
+endfunction
+:nnoremap <C-N><C-N> :set invnumber<CR>
+:nnoremap <C-P> :PluginInstall<CR>:q<CR>
+:nnoremap <C-u> :UndotreeToggle<CR>
