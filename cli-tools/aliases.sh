@@ -36,4 +36,7 @@ alias gc="git commit -v -a"
 alias gc!="git commit -v --amend"
 alias grb="git branch -D"
 alias l="vim ~/.local_functions"
+alias gs="git status"
 # alias tmux="TERM=xterm-256color tmux"
+alias f="vim ~/.local_functions"
+
