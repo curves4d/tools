@@ -56,7 +56,12 @@ plugins=(colored-man-pages)
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
-source ~/.bash_profile
+if [ -f ~/.bash_profile ]; then
+    source ~/.bash_profile
+fi
+if [ -f ~/.bashrc ]; then
+    source ~/.bashrc
+fi
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
