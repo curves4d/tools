@@ -16,7 +16,7 @@ set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_enable_signs=1
 let g:syntastic_python_checkers=['pep8', 'pylint', 'python']
@@ -25,9 +25,9 @@ Plugin 'majutsushi/tagbar'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-scripts/Gundo'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-airline/vim-airline'
 Plugin 'mbbill/undotree'
-Plugin 'tpope/vim-fugitive'
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#tabline#fnamemod = ':t'
@@ -113,24 +113,10 @@ set list
 set listchars=tab:>>,nbsp:_,trail:.
 :nnoremap <leader>w :silent !xdg-open <C-R>=escape("<C-R><C-F>", "#?&;\|%")<CR><CR>
 set hlsearch
-:cnoremap <C-x> <C-\>e(<SID>RemoveLastPathComponent())<CR>
+cnoremap <C-x> <C-\>e(<SID>RemoveLastPathComponent())<CR>
 function! s:RemoveLastPathComponent()
       return substitute(getcmdline(), '\%(\\ \|[\\/]\@!\f\)\+[\\/]\=$\|.$', '', '')
 endfunction
 :nnoremap <C-N><C-N> :set invnumber<CR>
 :nnoremap <C-P> :PluginInstall<CR>:q<CR>
 :nnoremap <C-u> :UndotreeToggle<CR>
-let g:ctrlp_switch_buffer = 'Et'
-let g:ctrlp_max_files=0
-let g:ctrlp_use_caching = 1
-let g:ctrlp_show_hidden = 1
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-
-" unicode symbols
-"let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-"let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-"let g:airline_symbols.crypt = '🔒'
