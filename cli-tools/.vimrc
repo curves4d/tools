@@ -20,6 +20,8 @@ Plugin 'vim-scripts/Gundo'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-airline/vim-airline'
 Plugin 'mbbill/undotree'
+Plugin 'ervandew/supertab'
+Plugin 'tpope/vim-fugitive'
 " Enable the list of buffers
 "let g:airline#extensions#tabline#fnamemod = ':t'
 
@@ -109,7 +111,7 @@ function! s:RemoveLastPathComponent()
       return substitute(getcmdline(), '\%(\\ \|[\\/]\@!\f\)\+[\\/]\=$\|.$', '', '')
 endfunction
 :nnoremap <C-N><C-N> :set invnumber<CR>
-:nnoremap <C-P> :PluginInstall<CR>:q<CR>
+:nnoremap <C-nnoremapP> :PluginInstall<CR>:q<CR>
 :nnoremap <C-u> :UndotreeToggle<CR>
 :noremap <C-s> :w<CR>
 :noremap <C-l> o<esc>
