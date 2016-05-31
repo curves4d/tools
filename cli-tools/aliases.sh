@@ -39,4 +39,4 @@ alias l="vim ~/.local_functions"
 alias gs="git status"
 # alias tmux="TERM=xterm-256color tmux"
 alias f="vim ~/.local_functions"
-
+alias k="kill -9"

@@ -9,17 +9,9 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/syntastic'
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_enable_signs=1
-let g:syntastic_python_checkers=['pep8', 'pylint', 'python']
 
 Plugin 'majutsushi/tagbar'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -29,7 +21,6 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-airline/vim-airline'
 Plugin 'mbbill/undotree'
 " Enable the list of buffers
-let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#tabline#fnamemod = ':t'
 
 nmap <F8> :TagbarToggle<CR>
@@ -120,3 +111,21 @@ endfunction
 :nnoremap <C-N><C-N> :set invnumber<CR>
 :nnoremap <C-P> :PluginInstall<CR>:q<CR>
 :nnoremap <C-u> :UndotreeToggle<CR>
+:noremap <C-s> :w<CR>
+:noremap <C-l> o<esc>
+
+" Airline settings
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_detect_modified=1
+let g:airline_left_sep = '»'
+let g:airline_right_sep = '«'
+
+" CtrlP Settings
+
+  let g:ctrlp_clear_cache_on_exit = 0
+  let g:ctrlp_show_hidden = 1
+
+" This allows the user to use :R followed by a command and get the output in a
+" scratch buffer
+command! -nargs=* -complete=shellcmd R new | setlocal buftype=nofile bufhidden=hide noswapfile | r !<args>
+
