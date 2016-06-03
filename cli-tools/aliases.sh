@@ -41,3 +41,5 @@ alias v="vim $HOME/.vimrc"
 
 #Keep this after git commands
 
+alias st="tmux source-file ~/.tmux.conf"
+alias v="vim $cli_tools_dir/.vimrc"

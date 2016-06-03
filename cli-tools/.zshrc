@@ -62,6 +62,7 @@ fi
 if [ -f ~/.bashrc ]; then
     source ~/.bashrc
 fi
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -86,6 +87,7 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+# Vim messes up without this option
 export TERM=screen-256color
 
 if [ -f ~/.local_functions ]; then
