@@ -92,3 +92,5 @@ if [ -f ~/.local_functions ]; then
     source ~/.local_functions
 fi
 
+# Set colors for directory listing
+LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
