@@ -17,6 +17,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-scripts/Gundo'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-airline/vim-airline'
 Plugin 'mbbill/undotree'
 Plugin 'ervandew/supertab'
@@ -57,8 +58,13 @@ colorscheme solarized
 :let mapleader = '-'
 :let maplocalleader = "\\"
 :nnoremap <leader>q :TagbarToggle<CR>
-:nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+:nnoremap <leader>ev :e $MYVIMRC<cr>
 :nnoremap <leader>sv :source $MYVIMRC<cr>
+:nnoremap <leader>ez :e $HOME/.zshrc<cr>
+:nnoremap <leader>el :e $HOME/.local_functions<cr>
+:nnoremap <leader>ef :e $cli_tools_dir/functions.sh<cr>
+:nnoremap <leader>ea :e $cli_tools_dir/aliases.sh<cr>
+
 :iabbrev @@ udbhavksingh@gmail.com
 :nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 :inoremap jk <esc>
@@ -112,8 +118,8 @@ endfunction
 :nnoremap <C-N><C-N> :set invnumber<CR>
 :nnoremap <C-nnoremapP> :PluginInstall<CR>:q<CR>
 :nnoremap <C-u> :UndotreeToggle<CR>
-:nnoremap <C-s> :w<CR>
-:nnoremap <C-l> o<esc>
+:noremap <C-s> :w<CR>
+:noremap <C-l> o<esc>
 
 " Airline settings
 let g:airline#extensions#tabline#enabled = 1
@@ -123,9 +129,8 @@ let g:airline_right_sep = '«'
 
 " CtrlP Settings
 
-let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_max_files=0
+  let g:ctrlp_clear_cache_on_exit = 0
+  let g:ctrlp_show_hidden = 1
 
 " This allows the user to use :R followed by a command and get the output in a
 " scratch buffer

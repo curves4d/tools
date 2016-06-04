@@ -51,15 +51,38 @@ function cdb {
 }
 
 
-# Copy dist over to the named location on s3
-function ds3 {
-    echo "Copying /Users/udbhav.singh/br/work/src/backend/dist to s3://br-user/data_pipeline_release/$1/"
-    s3cmd sync /Users/udbhav.singh/br/work/src/backend/dist s3://br-user/data_pipeline_release/$1/
+# Copy the dot files from $HOME to $cli_tools_dir
+function cpt {
+    cp $HOME/.zshrc $cli_tools_dir/.zshrc
+    cp $HOME/.vimrc $cli_tools_dir/.vimrc
 }
 
 
-# Show page from ontology
-function ont {
-    curl "https://ontology.corp.bloomreach.com/kitt/owf2?url=${1}&merchant=${2}&query=${3}" | less
+function cli-tools-workflow {
+    cd $cli_tools_dir
+    cpt
+    gc
+    m
+    gp
+    gmt local
+    gc
+    grim
+    merge_exit_code=$?
+    if [ $merge_exit_code -ne 0 ]; then
+        echo "Exit code from merge:" $merge_exit_code
+        echo "Resolve now?(y/n)"
+        read ans
+        if [ $ans == "n" ]; then
+            # just go back and deal with it later
+            cd -
+        else
+            # TODO: start vim and edit the conflicted file
+            # pass for now
+        fi
+    else
+        m
+        gr local
+        gpom
+        cd -
+    fi
 }
-
