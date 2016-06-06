@@ -50,13 +50,48 @@ function cdb {
     cdh $(cat ~/.cd)
 }
 
-
 # Copy the dot files from $HOME to $cli_tools_dir
-function cpt {
+function cp2m {
     cp $HOME/.zshrc $cli_tools_dir/.zshrc
     cp $HOME/.vimrc $cli_tools_dir/.vimrc
 }
 
+# Copy the dot files from $cli_tools_dir to $HOME
+function cp2h {
+    cp $cli_tools_dir/.zshrc $HOME/.zshrc
+    cp $cli_tools_dir/.vimrc $HOME/.vimrc
+}
+
+function sync-cli {
+    # This should be run before making any changes to the local files
+    cd $cli_tools_dir
+
+    # Commit any changes
+    gmt local
+    gc
+
+    # get the master branch up to date
+    m
+    gp
+
+    # rebase local with master. Local will be up to date after this
+    gmt local
+    grim
+    merge_exit_code=$?
+
+    # now move back to master an push to origin
+    m
+    gpom
+
+    # move back to local to continue working
+    gmt local
+
+    # Now make the system dot files up to date
+    cp2h
+
+    # Move back to the directory you were working on
+    cd -
+}
 
 function cli-tools-workflow {
     cd $cli_tools_dir

@@ -9,7 +9,7 @@ alias c="clear"
 alias cd="cdh"
 alias cdd="cd $dist"
 alias cdl="cd ~/local_work_dir"
-alias e="vim $HOME/.zshrc"
+alias e="vim $cli_tools_dir/.zshrc"
 alias ea="sudo easy_install"
 alias f="vim $cli_tools_dir/functions.sh"
 alias gb="git branch | grep"
@@ -37,7 +37,7 @@ alias pip="sudo pip"
 alias s="source ~/.zshrc"
 alias sb="source ~/.bashrc"
 alias sp="source ~/.bash_profile"
-alias v="vim $HOME/.vimrc"
+alias v="vim $cli_tools_dir/.vimrc"
 
 #Keep this after git commands
 
