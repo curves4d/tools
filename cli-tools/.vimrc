@@ -115,10 +115,10 @@ function! s:RemoveLastPathComponent()
       return substitute(getcmdline(), '\%(\\ \|[\\/]\@!\f\)\+[\\/]\=$\|.$', '', '')
 endfunction
 :nnoremap <C-N><C-N> :set invnumber<CR>
-:nnoremap <C-nnoremapP> :PluginInstall<CR>:q<CR>
+:nnoremap <C-i> :PluginInstall<CR>:q<CR>
 :nnoremap <C-u> :UndotreeToggle<CR>
-:noremap <C-s> :w<CR>
-:noremap <C-l> o<esc>
+:nnoremap <C-s> :w<CR>
+:nnoremap <C-l> o<esc>
 
 " Airline settings
 let g:airline#extensions#tabline#enabled = 1
