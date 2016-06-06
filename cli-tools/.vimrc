@@ -58,7 +58,7 @@ colorscheme solarized
 :let maplocalleader = "\\"
 :nnoremap <leader>q :TagbarToggle<CR>
 :nnoremap <leader>ev :e $cli_tools_dir/.vimrc<cr>
-:nnoremap <leader>sv :source $MYVIMRC<cr>
+:nnoremap <leader>sv :!cp $cli_tools_dir/.vimrc ~/.vimrc<cr> :source $MYVIMRC<cr>
 :nnoremap <leader>ez :e $cli_tools_dir/.zshrc<cr>
 :nnoremap <leader>el :e $HOME/.local_functions<cr>
 :nnoremap <leader>ef :e $cli_tools_dir/functions.sh<cr>

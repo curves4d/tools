@@ -62,7 +62,7 @@ function cp2h {
     cp $cli_tools_dir/.vimrc $HOME/.vimrc
 }
 
-function sync-cli {
+function cli-sync {
     # This should be run before making any changes to the local files
     cd $cli_tools_dir
 
@@ -81,6 +81,7 @@ function sync-cli {
 
     # now move back to master an push to origin
     m
+    gr local
     gpom
 
     # move back to local to continue working
@@ -90,6 +91,13 @@ function sync-cli {
     cp2h
 
     # Move back to the directory you were working on
+    cd -
+}
+
+function cli-commit {
+    cd $cli_tools_dir
+    gmt local
+    gc
     cd -
 }
 
