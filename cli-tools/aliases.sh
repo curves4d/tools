@@ -43,3 +43,4 @@ alias v="vim $HOME/.vimrc"
 
 alias st="tmux source-file ~/.tmux.conf"
 alias v="vim $cli_tools_dir/.vimrc"
+alias -g wl=" | wc -l"

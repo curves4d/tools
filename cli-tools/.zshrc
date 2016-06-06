@@ -63,6 +63,11 @@ if [ -f ~/.bashrc ]; then
     source ~/.bashrc
 fi
 
+# Install dircolors if they exist
+if [ -f ~/dircolors-solarized/dircolors.ansi-dark ]; then
+   eval `gdircolors ~/dircolors-solarized/dircolors.ansi-dark`
+fi
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
