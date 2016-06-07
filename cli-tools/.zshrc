@@ -56,9 +56,15 @@ plugins=(colored-man-pages)
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
+
+if [ -f ~/.local_functions ]; then
+    source ~/.local_functions
+fi
+
 if [ -f ~/.bash_profile ]; then
     source ~/.bash_profile
 fi
+
 if [ -f ~/.bashrc ]; then
     source ~/.bashrc
 fi
@@ -95,7 +101,4 @@ fi
 # Vim messes up without this option
 export TERM=screen-256color
 
-if [ -f ~/.local_functions ]; then
-    source ~/.local_functions
-fi
 

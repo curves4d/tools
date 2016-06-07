@@ -46,7 +46,7 @@ set expandtab "This converts all tabs to spaces
 set shiftwidth=4
 set number
 set mouse=a
-let g:solarized_termcolors=256
+"let g:solarized_termcolors=256
 syntax enable
 set background=dark
 colorscheme solarized
@@ -104,12 +104,11 @@ let g:ctrlp_working_path_mode = 'r'
 :nnoremap <leader>bb :CtrlPBuffer<cr>
 :nnoremap <leader>bm :CtrlPMixed<cr>
 :nnoremap <leader>bs :CtrlPMRU<cr>
-highlight ColorColumn ctermbg=blue
-set colorcolumn=81
+"highlight ColorColumn ctermbg=blue
+"set colorcolumn=81
 set list
 set listchars=tab:>>,nbsp:_,trail:.
 :nnoremap <leader>w :silent !xdg-open <C-R>=escape("<C-R><C-F>", "#?&;\|%")<CR><CR>
-set hlsearch
 cnoremap <C-x> <C-\>e(<SID>RemoveLastPathComponent())<CR>
 function! s:RemoveLastPathComponent()
       return substitute(getcmdline(), '\%(\\ \|[\\/]\@!\f\)\+[\\/]\=$\|.$', '', '')
