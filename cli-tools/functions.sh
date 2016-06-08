@@ -129,3 +129,16 @@ function cli-tools-workflow {
         cd -
     fi
 }
+
+# Set functions
+function un {
+    cat ${1} ${2} S -u
+}
+
+function in {
+    cat ${1} ${2} S U -d
+}
+
+function sd {
+    cat ${1} ${2} ${2} S U -u 
+}
