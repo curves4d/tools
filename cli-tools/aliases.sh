@@ -37,6 +37,7 @@ alias pip="sudo pip"
 alias s="cp2h;source ~/.zshrc"
 alias sb="source ~/.bashrc"
 alias sp="source ~/.bash_profile"
+alias sz="du -sh"
 alias v="vim $cli_tools_dir/.vimrc"
 
 #Keep this after git commands
