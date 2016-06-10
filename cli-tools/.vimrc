@@ -129,6 +129,7 @@ let g:airline_right_sep = '«'
 
   let g:ctrlp_clear_cache_on_exit = 0
   let g:ctrlp_show_hidden = 1
+  let g:ctrlp_max_files = 0
 
 " This allows the user to use :R followed by a command and get the output in a
 " scratch buffer
