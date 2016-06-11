@@ -54,12 +54,14 @@ function cdb {
 function cp2m {
     cp $HOME/.zshrc $cli_tools_dir/.zshrc
     cp $HOME/.vimrc $cli_tools_dir/.vimrc
+    cp $HOME/.tmux.conf $cli_tools_dir/
 }
 
 # Copy the dot files from $cli_tools_dir to $HOME
 function cp2h {
     cp $cli_tools_dir/.zshrc $HOME/.zshrc
     cp $cli_tools_dir/.vimrc $HOME/.vimrc
+    cp $cli_tools_dir/.tmux.conf $HOME/
 }
 
 function cli-sync {
