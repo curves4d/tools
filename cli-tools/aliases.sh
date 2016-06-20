@@ -28,7 +28,7 @@ alias gs="git status"
 alias h="history | less"
 alias i="sudo apt-get install"
 alias k="kill -9"
-alias l="vim ~/.local_functions"
+alias l="vim ~/.local_functions.sh"
 alias la="ls -AlG --group-directories-first"
 alias lt='ls -gAGhslrt --group-directories-first'
 alias m="gmt master"
@@ -39,7 +39,7 @@ alias sb="source ~/.bashrc"
 alias sp="source ~/.bash_profile"
 alias sz="du -sh"
 alias v="vim $cli_tools_dir/.vimrc"
-
+alias sc="vim $lw/scratch.sh"
 #Keep this after git commands
 
 alias st="tmux source-file ~/.tmux.conf"
