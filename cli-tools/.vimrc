@@ -46,7 +46,7 @@ set expandtab "This converts all tabs to spaces
 set shiftwidth=4
 set number
 set mouse=a
-let g:solarized_termcolors=256
+"let g:solarized_termcolors=256
 syntax enable
 set background=dark
 colorscheme solarized

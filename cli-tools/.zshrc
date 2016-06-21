@@ -61,9 +61,9 @@ if [ -f ~/.local_functions.sh ]; then
     source ~/.local_functions.sh
 fi
 
-#if [ -f ~/.bash_profile ]; then
-#    source ~/.bash_profile
-#fi
+if [ -f ~/.bash_profile ]; then
+    source ~/.bash_profile
+fi
 
 if [ -f ~/.bashrc ]; then
     source ~/.bashrc

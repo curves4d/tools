@@ -40,6 +40,7 @@ alias sp="source ~/.bash_profile"
 alias sz="du -sh"
 alias v="vim $cli_tools_dir/.vimrc"
 alias sc="vim $lw/scratch.sh"
+alias fdef="declare -f"
 #Keep this after git commands
 
 alias st="tmux source-file ~/.tmux.conf"
