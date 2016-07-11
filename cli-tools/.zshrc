@@ -65,9 +65,9 @@ if [ -f ~/.bash_profile ]; then
     source ~/.bash_profile
 fi
 
-if [ -f ~/.bashrc ]; then
-    source ~/.bashrc
-fi
+#if [ -f ~/.bashrc ]; then
+#    source ~/.bashrc
+#fi
 
 # Install dircolors if they exist
 if [ -f ~/dircolors-solarized/dircolors.ansi-dark ]; then
